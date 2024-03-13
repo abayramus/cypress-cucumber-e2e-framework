@@ -1,0 +1,34 @@
+[
+    {
+      "deanName": "abctest145",
+      "deanSurname": "abctest245",
+      "username": "abctest1345",
+      "ssn": "643-11-0987",
+      "phone": "643-111-5121",
+      "dateOfBirth": "2000-01-01",
+      "genderMale": "male",
+      "genderFemale": "female",
+      "password": "123456aA",
+      "address": "123 main st.",
+      "postCode": "34500",
+      "city": "Istanbul",
+      "state": "Kadikoy",
+      "country": "Turkey"
+    },
+    {
+      "deanName": "john2",
+      "deanSurname": "walker2",
+      "dateOfBirth": "2000-01-02",
+      "genderMale": "male",
+      "genderFemale": "female",
+      "phone": "145-111-1402",
+      "ssn": "145-11-1402",
+      "username": "john2",
+      "password": "123456aA",
+      "address": "123 main st.",
+      "postCode": "34500",
+      "city": "Istanbul",
+      "state": "Kadikoy",
+      "country": "Turkey"
+    }
+  ]

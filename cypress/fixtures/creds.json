@@ -1,0 +1,23 @@
+[
+  {
+    "username": "AdminAhmet",
+    "password": "AhmetBayram1+",
+    "url": "https://www.managementonschools.com",
+    "baseUrl": "https://managementonschools.com/app",
+    "getURL": "https://managementonschools.com/app/dean/getAll"
+  },
+  {
+    "username": "studentid1+",
+    "password": "studentpass1+",
+    "url": "https://www.managementonschools.com",
+    "baseUrl": "https://managementonschools.com/app",
+    "getURL":"https://managementonschools.com/app/students/getAll"
+  },
+  {
+    "username": "teacherid1+",
+    "password": "teacherpass1+",
+    "url": "https://www.managementonschools.com",
+    "baseUrl": "https://managementonschools.com/app",
+    "getURL":"https://managementonschools.com/app/teachers/getAll"
+  }
+]

@@ -4,20 +4,29 @@
     "password": "AhmetBayram1+",
     "url": "https://www.managementonschools.com",
     "baseUrl": "https://managementonschools.com/app",
-    "getURL": "https://managementonschools.com/app/dean/getAll"
+    "deanGetURL": "https://managementonschools.com/app/dean/getAll",
+    "deanPostURL": "https://managementonschools.com/app/dean/save",
+    "deanPutURL": "https://managementonschools.com/app/dean/update",
+    "advisorTeacherGetURL": "https://managementonschools.com/app/advisorTeacher/getAll",
+    "studentGetURL": "https://managementonschools.com/app/students/getAll",
+    "studentPostURL": "https://managementonschools.com/app/students/save"
   },
   {
-    "username": "studentid1+",
-    "password": "studentpass1+",
+    "username": "AdminAhmet",
+    "password": "AhmetBayram1+",
     "url": "https://www.managementonschools.com",
     "baseUrl": "https://managementonschools.com/app",
-    "getURL":"https://managementonschools.com/app/students/getAll"
+    "deanGetURL": "https://managementonschools.com/app/dean/getAll",
+    "deanPostURL": "https://managementonschools.com/app/dean/save"
+
   },
   {
-    "username": "teacherid1+",
-    "password": "teacherpass1+",
+    "username": "AdminAhmet",
+    "password": "AhmetBayram1+",
     "url": "https://www.managementonschools.com",
     "baseUrl": "https://managementonschools.com/app",
-    "getURL":"https://managementonschools.com/app/teachers/getAll"
+    "deanGetURL": "https://managementonschools.com/app/dean/getAll",
+    "deanPostURL": "https://managementonschools.com/app/dean/save"
+
   }
 ]

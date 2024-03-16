@@ -38,10 +38,29 @@ export default defineConfig({
           async connectDB(query) {
             const pool = new Pool(dbConfig);
             const results = await pool.query(query);
+            await pool.end(); // It's a good practice to close the pool after the operation
             return results;
+          },
+
+
+
+          // for create a new dean directly in the database
+          async createDeanDB(deanDetails) {
+            const query = {
+              text: 'INSERT INTO dean(birth_day, birth_place, gender, name, password, phone_number, ssn, surname, username) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *', // Make sure to include all necessary columns
+              values: [deanDetails.dateOfBirth, deanDetails.city, deanDetails.genderMale, deanDetails.deanName,deanDetails.password,deanDetails.phone,deanDetails.ssn,deanDetails.deanSurname,deanDetails.username],
+            };
+            const pool = new Pool(dbConfig);
+            try {
+              const results = await pool.query(query);
+              await pool.end();
+              return results.rows[0]; // Assuming you want to return the created dean
+            } catch (err) {
+              await pool.end();
+              throw err; // It will automatically fail the test if an error occurs
+            }
           }
         });
-
         
       // Make sure to return the config object as it might have been modified by the plugin.
       return config;

@@ -23,6 +23,7 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+const { faker } = require("@faker-js/faker");
 
 Cypress.Commands.add("login", (email, password) => {
   //loging linkine tikla
@@ -72,7 +73,7 @@ Cypress.Commands.add("generateToken", (username, password) => {
 //REPLACED WITH ABOVE CODE TO MAKE THE METHOD MORE DYNAMIC
 //This code defines a custom Cypress command named createUserPostRequest.
 //This command is designed to send a POST request to the specified URL
-// PARAMETERS ARE ASSIGNED IN THE STEP DEFINITIONS 
+// PARAMETERS ARE ASSIGNED IN THE STEP DEFINITIONS
 Cypress.Commands.add("createUserPostRequest", (token, newUserData, postURL) => {
   cy.request({
     method: "POST",
@@ -86,10 +87,9 @@ Cypress.Commands.add("createUserPostRequest", (token, newUserData, postURL) => {
   });
 });
 
-
 //This code defines a custom Cypress command named updateUserPutRequest.
 //This command is designed to send a PUT request to the specified URL to replace existing dean with new values
-// PARAMETERS ARE ASSIGNED IN THE STEP DEFINITIONS 
+// PARAMETERS ARE ASSIGNED IN THE STEP DEFINITIONS
 Cypress.Commands.add(
   "updateUserPutRequest",
   (token, userId, deanDetails, putURL) => {
@@ -107,3 +107,38 @@ Cypress.Commands.add(
     });
   }
 );
+
+//generated random user----
+Cypress.Commands.add("generateUsers", () => {
+  const user = {
+    name: faker.person.firstName(), // Generates a random name
+    surname: faker.person.lastName(),
+    city: faker.location.city(),
+    gender: faker.person.sex().toLowerCase(),
+    dateOfBirth:
+      faker.number.int({ min: 1900, max: 2010 }) +
+      "-" +
+      faker.number.int({ min: 1, max: 12 }).toString().padStart(2, "0") +
+      "-" +
+      faker.number.int({ min: 1, max: 28 }).toString().padStart(2, "0"),
+    // phone:faker.phone.number().substring(0,12), // Generates a random phone number
+    phone:
+      faker.number.int({ min: 100, max: 999 }) +
+      "-" +
+      faker.number.int({ min: 100, max: 999 }) +
+      "-" +
+      faker.number.int({ min: 1000, max: 9999 }), // Generates a random phone number
+    ssn:
+      faker.number.int({ min: 100, max: 999 }) +
+      "-" +
+      faker.number.int({ min: 10, max: 99 }) +
+      "-" +
+      faker.number.int({ min: 1000, max: 9999 }),
+    username: faker.internet.userName(),
+    password: faker.internet.password({ length: 8, pattern: /^[a-zA-Z0-9]+$/ }),
+    email: faker.internet.email(), // Generates a random email
+    address: faker.location.streetAddress(false), // Generates a random address
+  };
+  console.log(user);
+  return user;
+});

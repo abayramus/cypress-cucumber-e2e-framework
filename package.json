@@ -11,6 +11,7 @@
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^20.0.2",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+    "@faker-js/faker": "^8.4.1",
     "cypress": "^13.6.6",
     "ts-loader": "^9.5.1"
   },

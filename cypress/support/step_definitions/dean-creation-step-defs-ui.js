@@ -6,6 +6,7 @@ const {
 import AddDeanPage from "../pages/AddDeanPage";
 let loginData;
 let registrationData;
+let user;
 const deanPage = new AddDeanPage();
 
 before(() => {
@@ -45,4 +46,25 @@ When("user enters dean required fields", () => {
 
 Then("vefify the dean creation is successfull", () => {
   deanPage.verifyDeanRegistration();
+});
+
+When("user enters dean required fields with faker", () => {
+  deanPage.clickOnMenu();
+  deanPage.clickOnDeanManagement();
+
+  cy.generateUsers().then((user) => {
+    console.log("USER -- ", user); // Log the generated user object
+
+    deanPage.enterDeanName(user.name);
+    deanPage.enterDeanSurName(user.username);
+    deanPage.enterBirthPlace(user.city);
+    deanPage.enterDeanGender(user.gender);
+    deanPage.enterBirthDay(user.dateOfBirth);
+    deanPage.enterPhone(user.phone);
+    deanPage.enterSSN(user.ssn);
+    deanPage.enterUsername(user.username);
+    deanPage.enterDeanPassword(user.password);
+  });
+
+  deanPage.clickOnDeanSubmit();
 });
